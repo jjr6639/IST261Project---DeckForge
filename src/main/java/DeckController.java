@@ -11,7 +11,7 @@ public class DeckController {
         deckSet = new TreeSet<>();
         initializeDecks();
     }
-//initialise
+//initialize
     private void initializeDecks() {
         Deck deck1 = new Deck("Mono-Red Aggro", "Standard", "Aggro");
         deck1.addCard(new Card("Lightning Bolt", "Instant", 1, 3));
