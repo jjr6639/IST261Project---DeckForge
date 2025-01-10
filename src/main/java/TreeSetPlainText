@@ -1,0 +1,7 @@
+Jordan Runyon - JJR6639
+
+For the second collections implementation for my project, I am using TreeSet<Card> to handle the collection of cards within each of the user's decks. The main advantage of this,
+Is that TreeSet will automatically handle and sort the cards based on their ordering,
+which is defined using a compareTo() method. So, pretty much, that means when the cards
+are added to the deck, they will be automatically stored in a sorted order. eliminating
+the use for manual sorting. TreeSet also makes sure that there is no duplicate cards added in each deck.

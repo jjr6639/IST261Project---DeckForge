@@ -1,0 +1,6 @@
+jjr6639 - Jordan Runyon
+HashMap:
+I chose HashMap for its O(1) average time complexity which is good for lookups, insertions, and deletions.
+It's suited for managing a collection of decks where each deck has a unique identifier.
+By using HashMap, this will ensure that efficient performance is achieved as the collection grows and makes searching for specific decks much faster compared to linear structures.
+The encapsulating class will be DeckManager.
