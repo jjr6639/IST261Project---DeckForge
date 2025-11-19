@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
 ![Course](https://img.shields.io/badge/Course-IST%20261-blue?style=for-the-badge)
 
-A comprehensive flashcard deck management application built with Java, designed to help users organize, study, and manage their learning materials through a mobile-friendly interface.
+A magic the gathering trading card game deck management application built with Java, designed to help users organize, study, and manage their MTG decks through a desktop interface.
 
 **IST 261 Course Project** - Complex Software Engineering | Penn State University
 
