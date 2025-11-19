@@ -1,77 +1,135 @@
-# IST261Project
-A simple java application for Magic the Gathering Deck Sharing on a desktop computer
+Deck Management System
+IST 261 Course Project - Complex Software Engineering
+A comprehensive flashcard deck management application built with Java, designed to help users organize, study, and manage their learning materials through a mobile-friendly interface.
 
-DeckForge – MTG Deck Sharing Application
-DeckForge is a Java-based application for creating, managing, organizing, and sharing Magic: The Gathering (MTG) decks.
-The project follows an MVC-influenced structure with clear separation between core models, controllers, persistence, and user interface tools.
-This application allows users to:
-Build MTG decks
-Organize decklists through different data structures (HashMap, TreeSet, Sorted Lists)
-Save and load decks via a persistence layer
-View deck details and interact with a UI layer
-Manage user profiles and shared deck collections
-📁 Project Structure
-Below is an overview of the major components in the project based on the included .java files.
-Core Models
-File	Description
-Card.java	Represents individual MTG cards.
-Deck.java	Stores a single deck and its card entries.
-DeckEntry.java	Represents a card + quantity inside a deck.
-User.java	Represents a user in the system.
-UserProfile.java	Stores profile-level user settings, deck history, etc.
-Data Structures
-The project includes multiple implementations for storing and organizing decklists:
-File	Description
-DeckHashMap.java	Deck storage backed by a HashMap. Fast lookup of cards.
-DeckList.java	List-based structure for decks.
-DeckSortedList.java	Automatically sorted deck list implementation.
-TreeSetPlainText.java	TreeSet-based text storage (used for ordering and deduplication).
-Controllers
-File	Description
-DeckController.java	Main controller connecting model and UI for deck interactions.
-DeckManager.java	Higher-level service for creating, deleting, importing, and exporting decks.
-PersistenceController.java	Handles saving/loading decks, users, and app data.
-User Interface (UI)
-File	Description
-DeckUI.java	General deck interaction UI (CLI or abstract UI layer).
-DeckDetailUI.java	Displays specific deck details.
-DeckListUI.java	Lists decks belonging to a user.
-DeckView.java	View-layer representation of a deck.
-App.java / Main.java	Entry point launching the UI and application controllers.
-Testing / Utilities
-File	Description
-DeckTest.java	Unit tests focused on deck behavior.
-TestHarness.java	Full-system testing or debugging tool.
-🚀 Features
-✔ Deck Creation and Editing
-Add / remove / modify card entries
-Automatic sorting through data structure implementations
-Deck validation rules (if implemented)
-✔ Deck Persistence
-Save decks to local storage using PersistenceController
-Export/import formats (e.g., plaintext, JSON, or custom format)
-✔ User Profiles
-Maintain user accounts with preferences
-Store each user’s deck collection
-✔ Flexible Data Structures
-Multiple deck storage options (HashMap, TreeSet, SortedList) allow:
-Experimenting with performance
-Custom sorting and filtering logic
-Pluggable backend for decks
-✔ CLI or GUI-Ready UI Layer
-The UI classes abstract the user interaction layer, making the system adaptable to:
-CLI
-Swing/JavaFX
-Web front-end (future)
-🔧 Requirements
-Java 17+ (recommended)
-Build tool: Maven or Gradle (depending on your setup)
-Optional: JUnit for testing
-▶ Running the Application
-If your entry point is Main.java:
-javac -d out src/main/java/*.java
-java -cp out Main
-Or if the entry point is App.java:
-javac -d out src/main/java/*.java
-java -cp out App
-(Adjust as needed depending on your directory structure.
+Project Overview
+This project was developed as part of the IST 261 Complex Software Engineering course. It demonstrates advanced software design principles, object-oriented programming, data persistence, and user interface implementation in Java.
+
+How It Works
+Core Architecture
+The application is built using a modular architecture with clear separation of concerns:
+
+Model Layer: Card.java, Deck.java, User.java, UserProfile.java - Handle data structures and business logic
+View Layer: DeckUI.java, DeckView.java, DeckDetailUI.java, DeckListUI.java - Manage user interface components
+Controller Layer: DeckController.java, PersistenceController.java - Coordinate between models and views
+Entry Point: App.java, Main.java - Application initialization and launch
+
+Key Features
+1. Deck Organization
+The system allows users to create and organize multiple decks of flashcards. Each deck can contain any number of cards and is managed through the DeckManager.java class, which handles:
+
+Creating new decks
+Organizing existing decks
+Searching and filtering decks
+Managing deck metadata
+
+2. Card Management
+Individual flashcards are represented by the Card.java class and contain:
+
+Question/prompt content
+Answer/response content
+Metadata (creation date, study history)
+Custom attributes for enhanced learning
+
+3. Data Structures
+The application implements multiple data structures for efficient operations:
+
+DeckHashMap.java: Provides O(1) average-case lookup for quick deck retrieval
+DeckList.java: Maintains ordered collections of decks
+DeckSortedList.java: Keeps decks organized by custom criteria (e.g., name, date modified, study progress)
+TreeSetPlainText: Manages hierarchical organization of content
+
+4. User System
+User management is handled through:
+
+User.java: Core user data and authentication
+UserProfile.java: Extended user information, preferences, and study statistics
+Individual user profiles track progress, study streaks, and performance metrics
+
+5. Data Persistence
+The PersistenceController.java ensures all user data, decks, and study progress are saved and can be restored between sessions. The system serializes data to maintain:
+
+Deck collections
+User progress
+Study history
+Application preferences
+
+6. Study Interface
+The UI components work together to provide an intuitive study experience:
+
+Browse all available decks (DeckListUI.java)
+View detailed information about specific decks (DeckDetailUI.java)
+Study cards with a clean, focused interface (DeckView.java)
+Track progress and statistics
+
+7. Testing Framework
+The application includes comprehensive testing:
+
+DeckTest.java: Unit tests for deck operations
+TestHarness.java: Integration testing suite
+Automated validation of core functionality
+
+Workflow
+
+Launch: Application starts through Main.java, initializing the UI and loading saved data
+Browse: Users navigate their deck collection through the list view
+Select: Clicking on a deck shows detailed information and study options
+Study: Users review cards, mark their confidence, and track progress
+Manage: Create new decks, add/edit cards, and organize collections
+Persist: All changes are automatically saved for future sessions
+
+Data Flow
+User Interaction → UI Components → Controller Layer → Model Layer → Data Persistence
+                                         ↓
+                                   Business Logic
+                                         ↓
+                                   Data Structures
+The controller layer mediates all interactions, ensuring data integrity and proper state management throughout the application lifecycle.
+
+Technical Highlights
+
+Object-Oriented Design: Extensive use of inheritance, polymorphism, and encapsulation
+Design Patterns: Implementation of MVC, Singleton, and Factory patterns
+Data Structures: Custom implementations of hash maps, sorted lists, and tree structures
+Mobile-First UI: Clean, intuitive interface optimized for mobile devices
+Persistence: Robust data saving and loading mechanisms
+Testing: Comprehensive test coverage ensuring reliability
+
+
+Project Structure
+src/main/
+├── App.java                    # Application entry point
+├── Card.java                   # Flashcard model
+├── Deck.java                   # Deck model
+├── DeckController.java         # Deck operations controller
+├── DeckDetailUI.java           # Deck detail view
+├── DeckEntry.java              # Deck entry helper
+├── DeckHashMap.java            # HashMap implementation
+├── DeckList.java               # List implementation
+├── DeckListUI.java             # Deck list view
+├── DeckManager.java            # Deck management system
+├── DeckSortedList.java         # Sorted list implementation
+├── DeckTest.java               # Unit tests
+├── DeckUI.java                 # Base UI components
+├── DeckView.java               # Study view
+├── Main.java                   # Main launcher
+├── PersistenceController.java  # Data persistence
+├── TestHarness.java            # Test suite
+├── TreeSetPlainText.java       # Tree structure
+├── User.java                   # User model
+└── UserProfile.java            # User profile model
+
+Course Context
+This project demonstrates proficiency in:
+
+Complex software system design and implementation
+Advanced Java programming techniques
+Data structure design and optimization
+User interface development
+Software testing and quality assurance
+Version control and project management
+Documentation and technical writing
+
+Author: Jordan Runyon
+Course: IST 261 - Complex Software Engineering
+Institution: Penn State University
